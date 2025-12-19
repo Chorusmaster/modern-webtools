@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+.custom {
+  margin: revert !important;
+  padding: revert !important;
+}
