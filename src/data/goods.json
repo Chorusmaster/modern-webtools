@@ -1,0 +1,52 @@
+[
+    {
+        "img": "bananas.jpg",
+        "name": "Bananas",
+        "price": 2.22
+    },
+    {
+        "img": "apples.jpg",
+        "name": "Apples",
+        "price": 1.25
+    },
+    {
+        "img": "pears.jpg",
+        "name": "Pears",
+        "price": 2.51
+    },
+    {
+        "img": "bread.jpg",
+        "name": "Bread",
+        "price": 2.8
+    },
+    {
+        "img": "milk.jpg",
+        "name": "Milk",
+        "price": 0.85
+    },
+    {
+        "img": "rice.jpg",
+        "name": "Rice",
+        "price": 2.0
+    },
+    {
+        "img": "tomatoes.jpg",
+        "name": "Tomatoes",
+        "price": 1.85
+    },
+    {
+        "img": "olives.jpg",
+        "name": "Olives",
+        "price": 3.28
+    },
+    {
+        "img": "meat.jpg",
+        "name": "Meat",
+        "price": 4.52
+    },
+    {
+        "img": "cheese.jpg",
+        "name": "Cheese",
+        "price": 3.5
+    }
+]
