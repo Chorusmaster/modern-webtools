@@ -1,9 +1,9 @@
 <template>
   <v-container fluid>
     <v-slide-group show-arrows>
-      <v-slide-group-item v-for="product in products" :key="product.id">
+      <v-slide-group-item v-for="(product, index) in products" :key="index">
         <v-card class="ma-4" max-width="344">
-          <img class="w-70 h-52 object-cover" :src="`img/goods/${product.img}`" cover></img>
+          <img class="w-70 h-52 object-cover" :src="`img/products/${product.img}`" cover></img>
 
           <v-card-title class="pb-0 pt-4">
             {{product.name}}
@@ -15,7 +15,7 @@
             </v-container>
 
             <v-card-actions class="pt-0">
-              <v-btn color="accent" text="Buy"></v-btn>
+              <v-btn color="accent" text="Buy" @click="basketStore.addProduct(product)"></v-btn>
             </v-card-actions>
           </div>
         </v-card>
@@ -31,15 +31,18 @@
 </style>
 
 <script>
-  import goods from '@/data/goods.json';
+  import products from '@/data/products.json';
+  import { useBasketStore } from '@/stores/store';
 
   export default {
     data() {
       return {
-        products: goods
+        products: products
       }
     }, computed: {
-
+      basketStore() {
+        return useBasketStore()
+      } 
     }
   }
 </script>
