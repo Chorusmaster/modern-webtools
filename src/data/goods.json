@@ -25,11 +25,6 @@
         "price": 0.85
     },
     {
-        "img": "rice.jpg",
-        "name": "Rice",
-        "price": 2.0
-    },
-    {
         "img": "tomatoes.jpg",
         "name": "Tomatoes",
         "price": 1.85
@@ -48,5 +43,10 @@
         "img": "cheese.jpg",
         "name": "Cheese",
         "price": 3.5
+    },
+    {
+        "img": "rice.jpg",
+        "name": "Rice",
+        "price": 2.0
     }
 ]
