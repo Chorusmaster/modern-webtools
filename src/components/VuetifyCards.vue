@@ -1,5 +1,5 @@
 <template>
-  <div class="full-width">
+  <v-container fluid>
     <v-slide-group show-arrows>
       <v-slide-group-item v-for="product in products" :key="product.id">
         <v-card class="ma-4" max-width="344">
@@ -21,13 +21,10 @@
         </v-card>
       </v-slide-group-item>
     </v-slide-group>
-  </div>
+  </v-container>
 </template>
 
 <style scoped>
-  .full-width {
-    width: 98vw;
-  }
   .smaller-spacing {
     word-spacing: -2px;
   }
