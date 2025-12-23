@@ -2,7 +2,7 @@
   <v-container fluid>
     <v-slide-group show-arrows>
       <v-slide-group-item v-for="(product, index) in products" :key="index">
-        <v-card class="ma-4" max-width="344">
+        <v-card class="ma-4 hover-elevation-8" max-width="344">
           <img class="w-70 h-52 object-cover" :src="`img/products/${product.img}`" cover></img>
 
           <v-card-title class="pb-0 pt-4">
@@ -27,6 +27,14 @@
 <style scoped>
   .smaller-spacing {
     word-spacing: -2px;
+  }
+
+  .v-card {
+    transition: transform 0.2s ease
+  }
+
+  .v-card:hover {
+    transform: scale(1.02);
   }
 </style>
 

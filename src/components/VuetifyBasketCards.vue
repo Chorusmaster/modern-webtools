@@ -24,6 +24,16 @@
   </v-container>
 </template>
 
+<style scoped>
+  .v-card {
+    transition: transform 0.2s ease
+  }
+
+  .v-card:hover {
+    transform: scale(1.02);
+  }
+</style>
+
 <script>
   import { useBasketStore } from '@/stores/store';
 
