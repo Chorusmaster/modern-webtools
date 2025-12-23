@@ -8,6 +8,7 @@
       </div>
     </VuetifyBanner>
 
+    <v-container v-if="basketStore.basket.length == 0" class="text-h4 text-center pt-16 text-gray-500">Basket is empty</v-container>
     <VuetifyBasketCards />
     
   </v-container>

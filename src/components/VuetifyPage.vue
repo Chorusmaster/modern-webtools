@@ -7,7 +7,7 @@
           <v-spacer />
 
           <v-btn to="/code">Code</v-btn>
-          <v-btn to="/" class="text-accent font-weight-bold">Home</v-btn>
+          <v-btn to="/">Home</v-btn>
           <v-btn to="/basket">Basket</v-btn>
         </v-app-bar>
 
@@ -26,3 +26,10 @@
       </v-main>
   </v-container>
 </template>
+
+<style scoped>
+  .v-btn--active {
+    color: #4DE600;
+    font-weight: 700;
+  }
+</style>
