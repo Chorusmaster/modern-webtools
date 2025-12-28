@@ -20,7 +20,7 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import VuetifyBanner from '@/components/VuetifyBanner.vue';
   import VuetifyBasketCards from '@/components/VuetifyBasketCards.vue';
   import banner from '../assets/img/basket_banner.png';

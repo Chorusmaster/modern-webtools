@@ -16,7 +16,7 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import VuetifyBanner from '@/components/VuetifyBanner.vue';
   import VuetifyHomeCards from '../components/VuetifyHomeCards.vue';
   import products from '@/data/products.json';

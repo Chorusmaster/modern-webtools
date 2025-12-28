@@ -15,7 +15,7 @@
             </v-container>
 
             <v-card-actions class="pt-0">
-              <v-btn color="accent" text="Buy" @click="basketStore.addProduct(product)"></v-btn>
+              <v-btn color="accent" text="Buy" @click="basketStore.addItem(product)"></v-btn>
             </v-card-actions>
           </div>
         </v-card>
@@ -38,7 +38,7 @@
   }
 </style>
 
-<script>
+<script lang="ts">
   import products from '@/data/products.json';
   import { useBasketStore } from '@/stores/store';
 
