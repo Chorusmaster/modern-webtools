@@ -1,16 +1,20 @@
 <template>
   <v-app>
-      <div class="flex">
-        <VuetifyPage />
-      </div>
+    <VuetifyNavbar />
+    <SidePanel />
+    <VuetifyPage />
   </v-app>
 </template>
 
-<script>
+<script lang="ts">
+  import SidePanel from "./components/SidePanel.vue";
+  import VuetifyNavbar from "./components/VuetifyNavbar.vue";
   import VuetifyPage from "./components/VuetifyPage.vue";
 
   export default {
     components: {
+      SidePanel,
+      VuetifyNavbar,
       VuetifyPage
     }
   };
