@@ -1,16 +1,6 @@
 <template>
   <v-container fluid class="ma-0 pa-0">
-      <v-main class="pa-0">
-        <v-app-bar :elevation="2" class="px-4">
-          <v-app-bar-title>Dummy web</v-app-bar-title>
-
-          <v-spacer />
-
-          <v-btn to="/code">Code</v-btn>
-          <v-btn to="/">Home</v-btn>
-          <v-btn to="/basket">Basket</v-btn>
-        </v-app-bar>
-
+      <v-main class="py-0 pr-0 pl-14">
       
         <v-fade-transition hide-on-leave mode="out-in">
           <div :key="$route.fullPath">

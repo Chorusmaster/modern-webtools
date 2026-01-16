@@ -4,3 +4,15 @@
   margin: revert !important;
   padding: revert !important;
 }
+
+.clear-format,
+.clear-format * {
+  all: revert; 
+  box-sizing: border-box;
+}
+
+.clear-format img {
+  max-width: 700px;
+  height: auto;
+  display: block;
+}
