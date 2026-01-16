@@ -5,7 +5,12 @@
   padding: revert !important;
 }
 
-.clear-format,
+.clear-format {
+  margin-top: 40px !important;
+  all: revert; 
+  box-sizing: border-box;
+}
+
 .clear-format * {
   all: revert; 
   box-sizing: border-box;

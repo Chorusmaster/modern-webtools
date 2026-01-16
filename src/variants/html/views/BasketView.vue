@@ -8,8 +8,6 @@
 
     <img src="../../../assets/img/basket_banner.png" width="700px"></img>
 
-    <div>Basket is empty</div>
-
     <div>
       <img src="../../../../public/img/products/bananas.jpg" width="700px"></img>
       <div>Bananas</div>
