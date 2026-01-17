@@ -42,9 +42,9 @@
       for (const product of products) {
         const card = card_template.content.cloneNode(true) as DocumentFragment;
 
-        card.querySelector(".card-header")!.textContent = product.name;
-        card.querySelector(".card-price")!.textContent = product.price + "$";
-        card.querySelector("img")!.src = "/img/products/" + product.img;
+        if(card.querySelector(".card-header")) card.querySelector(".card-header")!.textContent = product.name;
+        if(card.querySelector(".card-price")) card.querySelector(".card-price")!.textContent = product.price + "$";
+        if(card.querySelector("img")) card.querySelector("img")!.src = "/img/products/" + product.img;
 
         container.appendChild(card);
       }
