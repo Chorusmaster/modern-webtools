@@ -1,16 +1,7 @@
 import express from 'express';
 import cors from 'cors';
-
-type Product = {
-  img: string,
-  name: string,
-  price: number,
-}
-
-type Item = {
-  product: Product,
-  quantity: number
-}
+import type { Product } from '../src/types/product.ts';
+import type { Item } from '../src/types/item.ts';
 
 const app = express();
 const port = 3000;

@@ -34,11 +34,7 @@
 <script lang="ts">
   import products from '@/data/products.json';
 
-  type Product = {
-    name: string;
-    price: number;
-    img: string;
-  };
+  import type { Product } from '@/types/product.ts';
   const typedProducts = products as Product[];
 
   function initPage() {
