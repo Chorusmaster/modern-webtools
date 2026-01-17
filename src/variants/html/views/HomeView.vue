@@ -9,7 +9,7 @@
     <img src="../../../assets/img/home_banner.png"></img>
 
     <div>
-      <img src="../../../../public/img/products/bananas.jpg" width="700px"></img>
+      <img src="/img/products/bananas.jpg" width="700px"></img>
       <div>Bananas</div>
       <div>
         10$

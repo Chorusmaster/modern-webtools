@@ -10,8 +10,7 @@
       <img src="../../../assets/img/home_banner.png"></img>
     </div>
 
-    <div class="cards-container">
-
+    <template id="card-template">
       <div class="card">
         <img src="/img/products/bananas.jpg"></img>
         <div class="card-body">
@@ -22,43 +21,60 @@
           <button>BUY</button>
         </div>
       </div>
+    </template>
 
-      <div class="card">
-        <img src="/img/products/apples.jpg"></img>
-        <div class="card-body">
-          <div class="card-info">
-            <div class="card-header">Apples</div>
-            <div class="card-price">1.25$</div>
-          </div>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="/img/products/pears.jpg"></img>
-        <div class="card-body">
-          <div class="card-info">
-            <div class="card-header">Pears</div>
-            <div class="card-price">2.51$</div>
-          </div>
-          <button>BUY</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <img src="/img/products/bread.jpg"></img>
-        <div class="card-body">
-          <div class="card-info">
-            <div class="card-header">Bread</div>
-            <div class="card-price">2.80$</div>
-          </div>
-          <button>BUY</button>
-        </div>
-      </div>
-
+    <div class="scroll-container">
+      <button id="left-slide"><</button>
+      <div id="cards-container"></div>
+      <button id="right-slide">></button>
     </div>
   </div>
 </template>
+
+<script>
+  import products from '@/data/products.json';
+
+  function initPage() {
+    const card_template = document.getElementById("card-template");
+    const container = document.getElementById("cards-container");
+
+    for (const product of products) {
+      const card = card_template.content.cloneNode(true);
+
+      card.querySelector(".card-header").textContent = product.name;
+      card.querySelector(".card-price").textContent = product.price + "$";
+      card.querySelector("img").src = "/img/products/" + product.img;
+
+      container.appendChild(card);
+    }
+
+    const button_left = document.getElementById("left-slide");
+    const button_right = document.getElementById("right-slide");
+
+    button_left.addEventListener("click", () => {
+      container.scrollBy({
+        left: -314,
+        behavior: "smooth"
+      })
+    })
+
+    button_right.addEventListener("click", () => {
+      container.scrollBy({
+        left: 314,
+        behavior: "smooth"
+      })
+    })
+
+    const products_count = document.querySelector(".products-count > span");
+    products_count.textContent = products.length;
+  }
+
+  export default {
+    mounted() {
+      initPage();
+    } 
+  };
+</script>
 
 <style scoped>
   .banner {
@@ -107,12 +123,40 @@
 
   /* CARDS */
 
-  .cards-container {
+  .scroll-container {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    padding-right: 5vw;
+    padding-left: 5vw;
+    overflow: hidden;
+  }
+
+  .scroll-container > button {
+    height: 60px;
+    width: 40px;
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+  }
+
+  .scroll-container > button:hover {
+    color: #e6e6e6;
+  }
+
+  #cards-container {
     margin-top: 60px;
-    padding-left: 64px;
-    width: 100vw;
+    margin-bottom: 15px;
     display: flex;
     flex-direction: row;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  #cards-container::-webkit-scrollbar {
+    display: none;
   }
 
   .card {
@@ -121,6 +165,7 @@
     background-color: #222121;
     margin: 16px;
     width: 280px;
+    min-width: 280px;
   }
 
   .card:hover {
