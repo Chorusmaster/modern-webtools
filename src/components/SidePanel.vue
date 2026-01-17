@@ -5,7 +5,6 @@
       <v-list-item prepend-icon="mdi-language-css3" title="CSS" value="css"></v-list-item>
       <v-list-item prepend-icon="mdi-language-javascript" title="JavaScript" value="js"></v-list-item>
       <v-list-item prepend-icon="mdi-language-typescript" title="TypeScript" value="ts"></v-list-item>
-      <v-list-item prepend-icon="mdi-bootstrap" title="Bootstrap" value="bootstrap"></v-list-item>
       <v-list-item prepend-icon="mdi-tailwind" title="Tailwind" value="tailwind"></v-list-item>
       <v-list-item prepend-icon="mdi-vuejs" title="Vue" value="vue"></v-list-item>
       <v-list-item prepend-icon="mdi-vuetify" title="Vuetify" value="vuetify"></v-list-item>

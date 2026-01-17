@@ -2,7 +2,7 @@
   <div class='clear-format'>
     <br><br><br>
 
-    <h1>Just another<br> e - commerce</h1>
+    <h1 class="text-warning">Just another<br> e - commerce</h1>
     <h2>0 products</h2>
     <h2>0 happy customers</h2>
 
