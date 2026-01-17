@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../variants/tailwind/views/HomeView.vue'
-import BasketView from '../variants/tailwind/views/BasketView.vue'
-import CodeView from '../views/CodeView.vue'
+import HomeView from '../variants/vue/views/HomeView.vue'
+import BasketView from '../variants/vue/views/BasketView.vue'
+import CodeView from '../variants/vue/views/CodeView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
