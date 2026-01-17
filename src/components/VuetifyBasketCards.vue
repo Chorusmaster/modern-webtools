@@ -39,17 +39,6 @@
 <script lang="ts">
   import { useBasketStore } from '@/stores/store';
 
-  type Product = {
-    img: string,
-    name: string,
-    price: number,
-  }
-
-  type Item = {
-    product: Product,
-    quantity: number
-  }
-
   export default {
     data() {
       return {

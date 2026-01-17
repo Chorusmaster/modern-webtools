@@ -1,16 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from "axios";
-
-type Product = {
-  img: string,
-  name: string,
-  price: number,
-}
-
-type Item = {
-  product: Product,
-  quantity: number
-}
+import type { Product } from '@/types/product.ts';
+import type { Item } from '@/types/item.ts';
 
 interface BasketState {
   basket: Item[],
