@@ -6,7 +6,7 @@
     'It has many benefits, such as modularity and structurization for project, optimisation, client-side rendering and much more',
     'Above that Vue have big ecosystem with many other useful tools for web development',
   ]"
-  :code="String.raw`<div class=&quot;bg-[#222121]! m-4! w-70! min-w-70! transition-transform! duration-300! hover:scale-103! shrink-0!&quot;
+  :code="`<div class=&quot;bg-[#222121]! m-4! w-70! min-w-70! transition-transform! duration-300! hover:scale-103! shrink-0!&quot;
   v-for=&quot;(product, index) in products&quot;
   :key=&quot;index&quot;>
   <img class=&quot;w-full! h-52! object-cover!&quot;

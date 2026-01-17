@@ -1,7 +1,7 @@
 <template>
   <v-container fluid class="d-flex mr-8 ml-8 mt-0 pa-6">
     <v-row class="d-flex flex-row">
-      <v-col v-for="(item, index) in basketStore.basket" :key="index" cols="auto">
+      <v-col v-for="(item, index) in (use_backend ? basketStore.backendBasket : basketStore.basket)" :key="index" cols="auto">
         <v-card class="ma-4 bg-surface" max-width="344" min-width="300">
           <img class="w-100 h-52 object-cover" :src="`/img/products/${item.product.img}`" cover>
 
@@ -15,7 +15,7 @@
             </v-container>
 
             <v-card-actions class="pt-0">
-              <v-btn color="accent" @click="basketStore.removeItem(index)">
+              <v-btn color="accent" @click="(use_backend ? asyncRemoveItem(index) : basketStore.removeItem(index))">
                 Cancel
               </v-btn>
             </v-card-actions>
@@ -39,10 +39,36 @@
 <script lang="ts">
   import { useBasketStore } from '@/stores/store';
 
+  type Product = {
+    img: string,
+    name: string,
+    price: number,
+  }
+
+  type Item = {
+    product: Product,
+    quantity: number
+  }
+
   export default {
     data() {
       return {
         basketStore: useBasketStore()
+      }
+    },
+    props: {
+      use_backend: {
+        type: Boolean,
+        default: false
+      }
+    },
+    mounted() {
+      this.basketStore.getStoreBackend();
+    },
+    methods: {
+      async asyncRemoveItem(index: number) {
+        await this.basketStore.removeItemBackend(index);
+        await this.basketStore.getStoreBackend();
       }
     }
   }

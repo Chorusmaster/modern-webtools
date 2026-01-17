@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import products from '../data/products.json'
+import axios from "axios";
 
 type Product = {
   img: string,
@@ -13,15 +13,18 @@ type Item = {
 }
 
 interface BasketState {
-  basket: Item[]
+  basket: Item[],
+  backendBasket: Item[]
 }
 
 export const useBasketStore = defineStore('basketStore', {
   state: (): BasketState => ({
-    basket: []
+    basket: [],
+    backendBasket: []
   }),
   getters: {
-    totalPrice: (state) => state.basket.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
+    totalPrice: (state) => state.basket.reduce((sum, item) => sum + item.product.price * item.quantity, 0),
+    totalPriceBackend: (state) => state.backendBasket.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
   },
   actions: {
     addItem(product: Product) {
@@ -39,6 +42,22 @@ export const useBasketStore = defineStore('basketStore', {
     },
     clearStore() {
       this.basket = []
+    },
+    async addItemBackend(product: Product) {
+      const { data } = await axios.post(
+          "http://localhost:3000/api/basket/",
+          { ...product }
+        );
+    },
+    async removeItemBackend(index: number) {
+      const { data } = await axios.delete(`http://localhost:3000/api/basket/${index}`);
+    },
+    async clearStoreBackend() {
+      const { data } = await axios.delete("http://localhost:3000/api/basket/");
+    },
+    async getStoreBackend() {
+      const { data } = await axios.get<Item[]>("http://localhost:3000/api/basket/");
+      this.backendBasket = data;
     }
   }
 })

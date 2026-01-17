@@ -6,7 +6,7 @@
       <h2 class="text-h5 text-secondary"><span class="font-weight-semibold">10000</span> happy customers</h2>
     </VuetifyBanner>
 
-    <VuetifyHomeCards :use_backend="false" />
+    <VuetifyHomeCards :use_backend="true" />
   </v-container>
 </template>
 
