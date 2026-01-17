@@ -18,9 +18,9 @@
 
 <script lang="ts">
   import VuetifyBanner from '@/components/VuetifyBanner.vue';
-  import VuetifyHomeCards from '../components/VuetifyHomeCards.vue';
+  import VuetifyHomeCards from '@/components/VuetifyHomeCards.vue';
   import products from '@/data/products.json';
-  import banner from '../assets/img/home_banner.png';
+  import banner from '@/assets/img/home_banner.png';
 
   export default {
     data() {
