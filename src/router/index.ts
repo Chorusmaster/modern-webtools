@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../variants/css/views/HomeView.vue'
-import BasketView from '../variants/css/views/BasketView.vue'
+import HomeView from '../variants/ts/views/HomeView.vue'
+import BasketView from '../variants/ts/views/BasketView.vue'
 import CodeView from '../views/CodeView.vue'
 
 const router = createRouter({
