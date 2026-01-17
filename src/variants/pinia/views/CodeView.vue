@@ -3,9 +3,9 @@
   technology="Pinia" 
   :list="[
     'Pinia is a library for Vue that provides centralized storage for all app',
-    'With Pinia shop can share data across pages until website is not reloaded',
+    'With Pinia shop can share data across pages until web is not reloaded',
   ]"
-  :code="String.raw`<v-col
+  :code="`<v-col
   v-for=&quot;(item, index) in basketStore.basket&quot;
   :key=&quot;index&quot;
   cols=&quot;auto&quot;

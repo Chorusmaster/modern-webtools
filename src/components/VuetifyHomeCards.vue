@@ -15,7 +15,7 @@
             </v-container>
 
             <v-card-actions class="pt-0">
-              <v-btn color="accent" text="Buy" @click="basketStore.addItem(product)"></v-btn>
+              <v-btn color="accent" text="Buy" @click="(use_backend ? basketStore.addItemBackend(product) : basketStore.addItem(product))"></v-btn>
             </v-card-actions>
           </div>
         </v-card>
@@ -47,6 +47,12 @@
       return {
         products: products,
         basketStore: useBasketStore()
+      }
+    },
+    props: {
+      use_backend: {
+        type: Boolean,
+        default: false
       }
     }
   }

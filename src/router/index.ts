@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-const variants = ['html', 'css', 'js', 'ts', 'tailwind', 'vue', 'vuetify', 'pinia'];
+const variants = ['html', 'css', 'js', 'ts', 'tailwind', 'vue', 'vuetify', 'pinia', 'axios'];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),

@@ -1,13 +1,13 @@
 <template>
   <CodeTemplate 
-  technology="Vuetify" 
+  technology="Axios" 
   :list="[
-    'Vuetify is a component library for Vue',
-    'It allows to make fascinating webs even faster than with only Vue',
-    'Also it provides a lot of well-made animations',
+    'Axios is a library for Vue that is used for making http requests',
+    'With Axios you can connect to backend and therefore store data',
+    'In this project Axios is used to save basket even when the page was reloaded',
   ]"
   :code="`<v-col
-  v-for=&quot;(item, index) in products&quot;
+  v-for=&quot;(item, index) in basketStore.backendBasket&quot;
   :key=&quot;index&quot;
   cols=&quot;auto&quot;
 >
@@ -18,25 +18,26 @@
   >
     <img
       class=&quot;w-100 h-52 object-cover&quot;
-      :src=&quot;\`/img/products/\${item.img}\`&quot;
+      :src=&quot;\`/img/products/\${item.product.img}\`&quot;
       cover
     />
 
     <v-card-title class=&quot;pb-0 pt-4&quot;>
-      {{ item.name }}
+      {{ item.product.name }}
     </v-card-title>
 
     <div class=&quot;d-flex justify-space-between&quot;>
       <v-container class=&quot;text-secondary pt-2&quot;>
-        {{ item.price }} $
+        {{ item.product.price }} $
+        <span class=&quot;pl-6&quot;>{{ item.quantity }}x</span>
       </v-container>
 
       <v-card-actions class=&quot;pt-0&quot;>
         <v-btn
           color=&quot;accent&quot;
+          text=&quot;Cancel&quot;
+          @click=&quot;basketStore.removeItem(index)&quot;
         />
-          Cancel
-        </v-btn>
       </v-card-actions>
     </div>
   </v-card>
