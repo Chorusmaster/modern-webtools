@@ -17,7 +17,12 @@ const router = createRouter({
       { path: 'home', component: () => import(`@/variants/${variant}/views/HomeView.vue`) },
       { path: 'basket', component: () => import(`@/variants/${variant}/views/BasketView.vue`) },
     ]
-  }))
+    })),
+    {
+      path: '/:pathMatch(.*)*',
+      name: 'NotFound',
+      component: () => import(`@/components/NotFoundPage.vue`)
+    }
   ]
 })
 

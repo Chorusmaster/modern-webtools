@@ -33,12 +33,7 @@
 
 <script lang="ts">
   import products from '@/data/products.json';
-
-  type Product = {
-    name: string;
-    price: number;
-    img: string;
-  };
+  import type { Product } from '@/types/product.ts';
 
   export default {
     data(): { products: Product[] } {
