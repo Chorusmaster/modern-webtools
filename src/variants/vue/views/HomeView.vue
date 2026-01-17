@@ -7,7 +7,7 @@
         <h2 class="m-0! font-normal! text-[#AAAAAA]!"><span class="font-semibold!">0</span> happy customers</h2>
       </div>
 
-      <img src="../../../assets/img/home_banner.png"></img>
+      <img src="@/assets/img/home_banner.png">
     </div>
 
     <div class="scroll-container d-flex items-center! flex-row! px-[5vw]! overflow-hidden!">
@@ -15,7 +15,7 @@
       <div ref="container" id="cards-container" class="mt-15! w-screen! d-flex flex-row! overflow-x-auto scrollbar-hide">
         
         <div class="bg-[#222121]! m-4! w-70! min-w-70! transition-transform! duration-300! hover:scale-103! shrink-0!" v-for="(product, index) in products" :key="index">
-          <img class="w-full! h-52! object-cover!" :src="`img/products/${product.img}`"></img>
+          <img class="w-full! h-52! object-cover!" :src="`/img/products/${product.img}`">
           <div class="d-flex items-end! justify-between! p-2!">
             <div class="p-3!">
               <div class="card-header text-xl!">{{ product.name }}</div>
@@ -34,23 +34,29 @@
 <script lang="ts">
   import products from '@/data/products.json';
 
+  type Product = {
+    name: string;
+    price: number;
+    img: string;
+  };
+
   export default {
-    data() {
+    data(): { products: Product[] } {
       return {
-        products: products
+        products: products as Product[]
       }
     },
     methods: {
       productsCount() {
-        return (!products ? 0 : products.length)
+        return this.products.length;
       },
       scrollLeft() {
-        const container = this.$refs.container as HTMLDivElement;
-        container.scrollBy({ left: -314, behavior: 'smooth' });
+        const container = this.$refs.container as HTMLDivElement | undefined;
+        if(container) container.scrollBy({ left: -314, behavior: 'smooth' });
       },
       scrollRight() {
-        const container = this.$refs.container as HTMLDivElement;
-        container.scrollBy({ left: 314, behavior: 'smooth' });
+        const container = this.$refs.container as HTMLDivElement | undefined;
+        if(container) container.scrollBy({ left: 314, behavior: 'smooth' });
       }
     }
   }

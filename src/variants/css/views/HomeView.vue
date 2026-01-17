@@ -7,7 +7,7 @@
         <h2 class="customers-count"><span class="bold-number">0</span> happy customers</h2>
       </div>
 
-      <img src="../../../assets/img/home_banner.png"></img>
+      <img src="@/assets/img/home_banner.png"></img>
     </div>
 
     <div class="cards-container">

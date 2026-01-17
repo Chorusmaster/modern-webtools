@@ -3,7 +3,7 @@
     <v-row class="d-flex flex-row">
       <v-col v-for="(item, index) in basketStore.basket" :key="index" cols="auto">
         <v-card class="ma-4 bg-surface" max-width="344" min-width="300">
-          <img class="w-100 h-52 object-cover" :src="`img/products/${item.product.img}`" cover></img>
+          <img class="w-100 h-52 object-cover" :src="`/img/products/${item.product.img}`" cover>
 
           <v-card-title class="pb-0 pt-4">
             {{ item.product.name }}
@@ -15,7 +15,9 @@
             </v-container>
 
             <v-card-actions class="pt-0">
-              <v-btn color="accent" text="Cancel" @click="basketStore.removeItem(index)"></v-btn>
+              <v-btn color="accent" @click="basketStore.removeItem(index)">
+                Cancel
+              </v-btn>
             </v-card-actions>
           </div>
         </v-card>
@@ -38,9 +40,9 @@
   import { useBasketStore } from '@/stores/store';
 
   export default {
-    computed: {
-      basketStore() {
-        return useBasketStore()
+    data() {
+      return {
+        basketStore: useBasketStore()
       }
     }
   }

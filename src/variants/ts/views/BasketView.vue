@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <img src="../../../assets/img/basket_banner.png"></img>
+      <img src="@/assets/img/basket_banner.png">
     </div>
 
     <div class="empty-message">Basket is empty</div>

@@ -1,26 +1,23 @@
-import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../variants/vue/views/HomeView.vue'
-import BasketView from '../variants/vue/views/BasketView.vue'
-import CodeView from '../variants/vue/views/CodeView.vue'
+import { createRouter, createWebHistory } from 'vue-router';
+const variants = ['html', 'css', 'js', 'ts', 'tailwind', 'vue', 'vuetify', 'pinia'];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
       path: '/',
-      name: 'home',
-      component: HomeView
+      redirect: '/html',
     },
-    {
-      path: '/basket',
-      name: 'basket',
-      component: BasketView
-    },
-    {
-      path: '/code',
-      name: 'code',
-      component: CodeView
-    }
+    ...variants.map(variant => ({
+    path: `/${variant}`,
+    meta: { variant },
+    redirect: `/${variant}/code`,
+    children: [
+      { path: 'code', component: () => import(`@/variants/${variant}/views/CodeView.vue`) },
+      { path: 'home', component: () => import(`@/variants/${variant}/views/HomeView.vue`) },
+      { path: 'basket', component: () => import(`@/variants/${variant}/views/BasketView.vue`) },
+    ]
+  }))
   ]
 })
 

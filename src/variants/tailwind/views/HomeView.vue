@@ -7,12 +7,12 @@
         <h2 class="m-0! font-normal! text-[#AAAAAA]!"><span class="font-semibold!">0</span> happy customers</h2>
       </div>
 
-      <img src="../../../assets/img/home_banner.png"></img>
+      <img src="@/assets/img/home_banner.png">
     </div>
 
     <template id="card-template">
       <div class="bg-[#222121]! m-4! w-70! min-w-70! transition-transform! duration-300! hover:scale-103!">
-        <img class="w-full! h-52! object-cover!" src="/img/products/bananas.jpg"></img>
+        <img class="w-full! h-52! object-cover!" src="/img/products/bananas.jpg">
         <div class="d-flex items-end! justify-between! p-2!">
           <div class="p-3!">
             <div class="card-header text-xl!">Bananas</div>

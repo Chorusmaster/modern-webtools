@@ -5,7 +5,6 @@ type Product = {
   img: string,
   name: string,
   price: number,
-  quantity?: number
 }
 
 type Item = {
@@ -22,17 +21,11 @@ export const useBasketStore = defineStore('basketStore', {
     basket: []
   }),
   getters: {
-    totalPrice: (state) => {
-      if(state.basket.length == 0) {
-        return 0
-      } else {
-        return state.basket.reduce((sum, item) => sum += item.product.price * (item.quantity ? item.quantity : 0), 0)
-      }
-    }
+    totalPrice: (state) => state.basket.reduce((sum, item) => sum + item.product.price * item.quantity, 0)
   },
   actions: {
     addItem(product: Product) {
-      const existing: Item | undefined = this.basket.find((item: Item) => item.product.name == product.name)
+      const existing: Item | undefined = this.basket.find((item: Item) => item.product.name === product.name)
 
       if (existing) {
         existing.quantity++
@@ -41,8 +34,8 @@ export const useBasketStore = defineStore('basketStore', {
         this.basket.push(item)
       }
     },
-    removeItem(id: number) {
-      this.basket = this.basket.filter((_, index) => index != id)
+    removeItem(index: number) {
+      this.basket.splice(index, 1)
     },
     clearStore() {
       this.basket = []

@@ -7,12 +7,12 @@
         <h2 class="customers-count"><span class="bold-number">0</span> happy customers</h2>
       </div>
 
-      <img src="../../../assets/img/home_banner.png"></img>
+      <img src="@/assets/img/home_banner.png">
     </div>
 
     <template id="card-template">
       <div class="card">
-        <img src="/img/products/bananas.jpg"></img>
+        <img src="/img/products/bananas.jpg">
         <div class="card-body">
           <div class="card-info">
             <div class="card-header">Bananas</div>
@@ -34,24 +34,37 @@
 <script lang="ts">
   import products from '@/data/products.json';
 
+  type Product = {
+    name: string;
+    price: number;
+    img: string;
+  };
+  const typedProducts = products as Product[];
+
   function initPage() {
-    const card_template:HTMLTemplateElement | null = document.getElementById("card-template") as HTMLTemplateElement;
-    const container:HTMLElement | null = document.getElementById("cards-container");
+    const card_template = document.getElementById("card-template") as HTMLTemplateElement | null;
+    const container = document.getElementById("cards-container") as HTMLElement | null;
 
     if (card_template && container) {
-      for (const product of products) {
+      for (const product of typedProducts) {
         const card = card_template.content.cloneNode(true) as DocumentFragment;
 
-        if(card.querySelector(".card-header")) card.querySelector(".card-header")!.textContent = product.name;
-        if(card.querySelector(".card-price")) card.querySelector(".card-price")!.textContent = product.price + "$";
-        if(card.querySelector("img")) card.querySelector("img")!.src = "/img/products/" + product.img;
+        if (card) {
+          const header = card.querySelector(".card-header") as HTMLElement | null; 
+          const price = card.querySelector(".card-price") as HTMLElement | null; 
+          const img = card.querySelector("img") as HTMLImageElement | null; 
+
+          header!.textContent = product.name;
+          price!.textContent = product.price + "$";
+          img!.src = "/img/products/" + product.img;
+        }
 
         container.appendChild(card);
       }
     }
 
-    const button_left:HTMLElement | null = document.getElementById("left-slide");
-    const button_right:HTMLElement | null = document.getElementById("right-slide");
+    const button_left = document.getElementById("left-slide") as HTMLButtonElement | null;;
+    const button_right = document.getElementById("right-slide") as HTMLButtonElement | null;;
 
     if (button_left && container) {
       button_left.addEventListener("click", () => {
@@ -71,8 +84,8 @@
       })
     }
 
-    const products_count: HTMLElement | null = document.querySelector(".products-count > span");
-    if (products_count) products_count.textContent = products.length.toString();
+    const products_count = document.querySelector(".products-count > span") as HTMLElement | null;
+    if (products_count) products_count.textContent = typedProducts.length.toString();
   }
 
   export default {
