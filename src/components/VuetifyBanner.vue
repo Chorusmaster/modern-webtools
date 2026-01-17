@@ -7,13 +7,15 @@
     </v-container>
 
     <div>
-      <img :src="src" class="object-cover"></img>
+      <img :src="src" class="object-cover">
     </div>
   </div>
 </template>
 
 <script lang="ts">
   export default {
-    props: ["src"]
+    props: {
+      src: { type: String, required: true }
+    }
   }
 </script>

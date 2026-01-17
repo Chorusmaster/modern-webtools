@@ -1,15 +1,15 @@
 <template>
   <div class='clear-format'>
-    <br><br><br>
+    <br>
 
-    <h1 class="text-warning">Just another<br> e - commerce</h1>
+    <h1>Just another<br> e - commerce</h1>
     <h2>0 products</h2>
     <h2>0 happy customers</h2>
 
-    <img src="../../../assets/img/home_banner.png"></img>
+    <img src="@/assets/img/home_banner.png">
 
     <div>
-      <img src="/img/products/bananas.jpg" width="700px"></img>
+      <img src="/img/products/bananas.jpg">
       <div>Bananas</div>
       <div>
         10$

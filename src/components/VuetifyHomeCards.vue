@@ -3,7 +3,7 @@
     <v-slide-group show-arrows>
       <v-slide-group-item v-for="(product, index) in products" :key="index">
         <v-card class="ma-4 hover-elevation-8" max-width="344">
-          <img class="w-70 h-52 object-cover" :src="`img/products/${product.img}`" cover></img>
+          <img class="w-70 h-52 object-cover" :src="`/img/products/${product.img}`" cover>
 
           <v-card-title class="pb-0 pt-4">
             {{product.name}}
@@ -45,12 +45,9 @@
   export default {
     data() {
       return {
-        products: products
+        products: products,
+        basketStore: useBasketStore()
       }
-    }, computed: {
-      basketStore() {
-        return useBasketStore()
-      } 
     }
   }
 </script>

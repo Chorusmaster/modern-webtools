@@ -7,12 +7,12 @@
         <h2 class="customers-count"><span class="bold-number">0</span> happy customers</h2>
       </div>
 
-      <img src="../../../assets/img/home_banner.png"></img>
+      <img src="@/assets/img/home_banner.png">
     </div>
 
     <template id="card-template">
       <div class="card">
-        <img src="/img/products/bananas.jpg"></img>
+        <img src="/img/products/bananas.jpg">
         <div class="card-body">
           <div class="card-info">
             <div class="card-header">Bananas</div>
@@ -38,35 +38,41 @@
     const card_template = document.getElementById("card-template");
     const container = document.getElementById("cards-container");
 
-    for (const product of products) {
-      const card = card_template.content.cloneNode(true);
+    if (card_template && container) {
+      for (const product of products) {
+        const card = card_template.content.cloneNode(true);
 
-      card.querySelector(".card-header").textContent = product.name;
-      card.querySelector(".card-price").textContent = product.price + "$";
-      card.querySelector("img").src = "/img/products/" + product.img;
+        card.querySelector(".card-header").textContent = product.name;
+        card.querySelector(".card-price").textContent = product.price + "$";
+        card.querySelector("img").src = "/img/products/" + product.img;
 
-      container.appendChild(card);
+        container.appendChild(card);
+      }
     }
 
     const button_left = document.getElementById("left-slide");
     const button_right = document.getElementById("right-slide");
 
-    button_left.addEventListener("click", () => {
-      container.scrollBy({
-        left: -314,
-        behavior: "smooth"
+    if (button_left) {
+      button_left.addEventListener("click", () => {
+        container.scrollBy({
+          left: -314,
+          behavior: "smooth"
+        })
       })
-    })
+    }
 
-    button_right.addEventListener("click", () => {
-      container.scrollBy({
-        left: 314,
-        behavior: "smooth"
+    if (button_right) {
+      button_right.addEventListener("click", () => {
+        container.scrollBy({
+          left: 314,
+          behavior: "smooth"
+        })
       })
-    })
+    }
 
     const products_count = document.querySelector(".products-count > span");
-    products_count.textContent = products.length;
+    if(products_count) products_count.textContent = products.length;
   }
 
   export default {

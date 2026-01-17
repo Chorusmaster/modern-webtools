@@ -9,7 +9,7 @@
         </div>
       </div>
 
-      <img src="../../../assets/img/basket_banner.png"></img>
+      <img src="@/assets/img/basket_banner.png">
     </div>
 
     <div class="d-flex justify-center! items-center! w-screen! h-50! text-4xl! mt-8! pr-16! text-[#6a7282]!">Basket is empty</div>
